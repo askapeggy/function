@@ -122,5 +122,9 @@
         </div>
     -->
     </form>
+    <?php
+        include "../function.php";
+        starts(11);
+    ?>
 </body>
 </html>
