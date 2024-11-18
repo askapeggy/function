@@ -17,6 +17,10 @@
     $pw = htmlspecialchars(trim($_POST['pw']));
     $email = htmlspecialchars(trim($_POST['email']));
     $tel = htmlspecialchars(trim($_POST['tel']));
+    include "../function.php";
+    $data=['acc'=>$acc, 'pw'=>$pw, 'email'=>$email, 'tel'=>$tel];
+    insert('crud', 'member', $data);
+    /*
     $sql = "insert into `member`(`acc`, `pw`, `email`, `tel`) 
         values('{$acc}', '{$pw}', '{$email}', '{$tel}')";
 
@@ -30,4 +34,5 @@
         header("location:reg_form.php?status=0");
     }
     $pdo = null;
+    */
 ?>

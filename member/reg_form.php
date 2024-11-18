@@ -124,7 +124,7 @@
     </form>
     <?php
         include "../function.php";
-        starts(11);
+        shape("菱形", 41);
     ?>
 </body>
 </html>

@@ -11,9 +11,14 @@
     <h1>恭喜登入成功</h1>
     <a href="Login2.php">回登入頁面</a>
     <?php
-        $dsn="mysql:host=localhost;charset=utf8;dbname=crud";
-        $pdo=new PDO($dsn,'root','');
-        $rows=$pdo->query("select * from member")->fetchAll(PDO::FETCH_ASSOC);
+        include "../function.php";
+        //$d1 = del('crud','member',9);
+        $d1 = find('crud', 'member', 7);
+        myPrint($d1);
+        $rows = all('crud','member');
+        // $dsn="mysql:host=localhost;charset=utf8;dbname=crud";
+        // $pdo=new PDO($dsn,'root','');
+        // $rows=$pdo->query("select * from member")->fetchAll(PDO::FETCH_ASSOC);
     ?>
 
     <table>

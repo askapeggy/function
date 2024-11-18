@@ -17,6 +17,17 @@
     $pw = htmlspecialchars(trim($_POST['pw']));
     $email = htmlspecialchars(trim($_POST['email']));
     $tel = htmlspecialchars(trim($_POST['tel']));
+    include "../function.php";
+
+    update('crud', 'member', ['acc'=>$acc, 'pw'=>$pw, 'email'=>$email, 'tel'=>$tel], $_POST['id']);
+    if(update('crud', 'member', ['acc'=>$acc, 'pw'=>$pw, 'email'=>$email, 'tel'=>$tel], $_POST['id']))
+    {
+        header("location:success.php?status=1");
+    }else
+    {
+        header("location:success.php?status=0");
+    }
+    /*
     $sql="UPDATE `member` SET `acc`='{$_POST['acc']}',
                                `pw`='{$_POST['pw']}',
                              `email`='{$_POST['email']}',
@@ -33,4 +44,5 @@
         header("location:success.php?status=0");
     }
     $pdo = null;
-?>
+    */
+    ?>

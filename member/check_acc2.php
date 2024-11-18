@@ -7,24 +7,27 @@
 </head>
 <body>
     <?php
+        include "../function.php";
         //session_start();
         if(!isset($_SESSION['login']))
         {
             if(!isset($_POST['account']) || !isset($_POST['password']))
             {
                 header("location:Login2.php");
-                exit();
+                //exit();
             }
         }
-        $dsn = "mysql:host=localhost;charset=utf8;dbname=crud;";
-        $pdo = new PDO($dsn, 'root', '');
+        // $dsn = "mysql:host=localhost;charset=utf8;dbname=crud;";
+        // $pdo = new PDO($dsn, 'root', '');
 
         $acc = htmlspecialchars(trim($_POST['account']));
         $pw = htmlspecialchars(trim($_POST['password']));
-        $sql = "SELECT count(id) FROM `member` WHERE `member`.`acc`='{$acc}' and `member`.`pw`= '{$pw}';";
+        //$sql = "SELECT count(id) FROM `member` WHERE `member`.`acc`='{$acc}' and `member`.`pw`= '{$pw}';";
         //echo $sql;
-        $row = $pdo->query($sql)->fetchColumn();
-        if($row == 1)
+        $row = find('crud', 'member', ['acc'=>$acc, 'pw'=>$pw]);
+        //$row = $pdo->query($sql)->fetchColumn();
+        if(!empty($row))
+        //if($row == 1)
         {
             echo "登入成功";
             header("location:success.php");

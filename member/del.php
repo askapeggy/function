@@ -1,4 +1,5 @@
 <?php
+    /*
     echo $_GET['id'];
     if(!isset($_GET['id']) || !is_numeric($_GET['id']))
     {
@@ -9,8 +10,12 @@
     $pdo = new PDO($dsn, 'root', '');
     $id=$_GET['id'];
     
+    /*
     $sql = "delete from member where id='$id'";
     $pdo->exec($sql);
+    */
+    include "../function.php";
+    del('crud', 'member', $id);
     header("location:success.php");
 
 ?>
